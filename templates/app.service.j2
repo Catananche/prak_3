@@ -1,0 +1,21 @@
+{#
+TODO: reuse your unit from Lab 1
+TODO: Path to jar should use variables {{ app_dir }}/{{ app_file }}
+TODO: Environment variable for PORT should use value from variable {{ app_port }}
+#}
+[Unit]
+Description=prak robota
+Requires=network-online.target
+After=network-online.target
+
+[Install]
+WantedBy=multi-user.target
+
+
+[Service]
+ExecStart=java -jar "{{ app_dir }}/{{ app_file }}"
+Environment="PORT={{ app_port }}"
+User=bilous_karina
+Restart=always
+RestartSec=10
+
